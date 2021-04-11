@@ -8,7 +8,7 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.listen(8080, () => {
-    console.log('web服务器启动成功')
+    console.log('8080端口服务器启动成功')
 })
 //各版本跨域
 app.all('*', function(req, res, next) {

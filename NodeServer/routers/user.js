@@ -22,6 +22,22 @@ router.post('/SelectUser',(req,res,next)=>{
     })
 })
 
+//验证用户登录
+router.post('/login',(req,res)=>{
+    let obj =req.body
+    pool.query('select * from user where uname=? and upwd=?',[obj.uname,obj.upwd],(err,data)=>{
+        if(err){
+            next()
+        }else{
+           if(data.length>0){
+            res.send({code:200,msg:'ok'})
+           }else{
+               res.send({code:401,msg:'账户或者密码错误'})
+           }
+        }
+    })
+})
+
 // 用户注册  
 router.post('/Reg',(req,res,next)=>{
     console.log(req.body)
@@ -45,11 +61,15 @@ router.post('/Reg',(req,res,next)=>{
    
 })
 
-//查询商品
+//获取热搜商品
 router.get('/getShop',(req,res,next)=>{
-    console.log(req.query)
-    let obj =req.query
-    pool.query('select * from ')
+    pool.query('select * from productList order by many desc',(err,data)=>{
+        if(err){
+            next()
+        }else{
+           res.send(data)
+        }
+    })
 })
 
 //加入购物车
