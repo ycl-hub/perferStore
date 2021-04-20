@@ -1,0 +1,48 @@
+/* 手机端首页 下方按钮样式 */
+.footer{
+  width: 90vw;
+  position: fixed;
+  bottom: 3vw;
+  left: 5vw;
+  padding: 1vw 0;
+  display: flex;
+  border-radius: 25vw;
+  border: 0;
+  box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255,255,255,0.1);
+  color: grey;
+}
+.int{
+  color: #29B5CA !important;
+}
+.footer a{
+  text-align: center;
+  color: rgba(59, 52, 52,0.8);
+}
+.footer .footicon{
+  border: 0;
+  width: 10vw;
+  height: 2vw;  
+  font-size: 6vw;
+}
+.footer p{
+  font-size: 3vw;
+  text-align: center;
+  margin: 0;
+}
+/* .text{
+  font-size: 10px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: inherit !important;
+} */
+
+ /* 去除默认样式 */
+ .footicon{
+   color: inherit !important;
+   color: #000;
+ }
+ 

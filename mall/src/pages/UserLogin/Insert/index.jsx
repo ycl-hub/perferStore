@@ -58,7 +58,7 @@ export default class index extends Component {
   };
   /* 返回登录组件 */
   Cancel = () => {
-    this.props.history.push("/");
+    this.props.history.push("/user");
   };
   render() {
     return (
@@ -135,6 +135,7 @@ export default class index extends Component {
             </Button>
           </Form>
         </div>
+        
       </>
     );
   }

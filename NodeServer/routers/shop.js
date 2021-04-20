@@ -3,10 +3,49 @@ const express = require('express')
 const router = express.Router()
 //引入连接池
 const pool = require('../pool')
+const multer = require('multer')
+
+//  用于保存图片名称
+let ImgUrl =''
+// 中间件 解析文件 使上传的图片到指定位置 并且修改指定的名称
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'public/img')
+            //上传的目录位置
+    },
+    filename: function(req, file, cb) {
+        console.log(file)
+        //  上传的文件要保存的名字
+        ImgUrl=file.originalname
+        cb(null,file.originalname)
+
+    }
+})
+//添加图片信息
+var upload = multer({ storage: storage })
+// 上传图片 接口 upload        这里的single里的值要等与前台的那么值 否则接收不到
+router.post('/upload',upload.single('photo'),(req,res,next)=>{
+        console.log('localhost:8080/public/img/'+ImgUrl)
+        // 返回给前台 图片地址
+        res.send({code:200,msg:'localhost:8080/public/img/'+ImgUrl})
+})
+
 
 //验证商家登录
-router.post('/login',(req,res)=>{
-    
+router.post('/login',(req,res,next)=>{
+    let obj =req.body
+    console.log(req.body)
+    pool.query('select * from admin where uname=? and upwd=?',[obj.uname,obj.upwd],(err,data)=>{
+        if(err){
+            next()
+        }else{
+           if(data.length>0){
+            res.send({code:200,msg:'ok'})
+           }else{
+               res.send({code:401,msg:'账户或者密码错误'})
+           }
+        }
+    })
 })
 
 //判定商家用户名是否存在 存在则返回状态码201
