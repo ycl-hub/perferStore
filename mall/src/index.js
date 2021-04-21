@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 /* eslint-disable */
+=======
+>>>>>>> 701eae47c6fd0fa83bd29e614ffae035ec02bd06
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { mainRoutes } from './routers'
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom'
+<<<<<<< HEAD
 import Mobile from './pages/Mobile'
 import UseLogin from './pages/UserLogin'
 import store from './redux/store'
@@ -31,6 +35,20 @@ ReactDOM.render(
   </Provider>
 
 
+=======
+
+ReactDOM.render(
+  <Router>
+    <Switch>
+      {
+        mainRoutes.map(route => {
+          return <Route key={route.path} {...route}/>
+        })
+      }
+      <Redirect to='/'/>
+    </Switch>
+  </Router>
+>>>>>>> 701eae47c6fd0fa83bd29e614ffae035ec02bd06
   ,
   document.getElementById('root')
 );

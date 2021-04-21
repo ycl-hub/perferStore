@@ -25,7 +25,11 @@ router.post('/SelectUser',(req,res,next)=>{
 //验证用户登录
 router.post('/login',(req,res)=>{
     let obj =req.body
+<<<<<<< HEAD
     console.log(req.body)
+=======
+    console.log(obj)
+>>>>>>> 701eae47c6fd0fa83bd29e614ffae035ec02bd06
     pool.query('select * from user where uname=? and upwd=?',[obj.uname,obj.upwd],(err,data)=>{
         if(err){
             next()

@@ -3,6 +3,7 @@ const express = require('express')
 const router = express.Router()
 //引入连接池
 const pool = require('../pool')
+<<<<<<< HEAD
 const multer = require('multer')
 
 //  用于保存图片名称
@@ -46,6 +47,12 @@ router.post('/login',(req,res,next)=>{
            }
         }
     })
+=======
+
+//验证商家登录
+router.post('/login',(req,res)=>{
+    
+>>>>>>> 701eae47c6fd0fa83bd29e614ffae035ec02bd06
 })
 
 //判定商家用户名是否存在 存在则返回状态码201

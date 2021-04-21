@@ -17,6 +17,11 @@ const layout = {
 class index extends Component {
   //登录请求
   onFinish = (values) => {
+<<<<<<< HEAD
+=======
+
+    
+>>>>>>> 701eae47c6fd0fa83bd29e614ffae035ec02bd06
     axios
       .post(
         "/api1/user/login",
